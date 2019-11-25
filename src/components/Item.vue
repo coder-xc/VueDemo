@@ -1,16 +1,31 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" />
-      <span>xxxxx</span>
+      <input type="checkbox" v-model="todo.complete" />
+      <span>{{todo.title}}</span>
     </label>
     <button class="btn btn-danger" style="display:none">删除</button>
   </li>
 </template>
 
+
+
 <script>
-export default {};
+  export default {
+    props: { // 属性名/属性值的类型
+      todo: Object
+    },
+    mounted() {
+      // console.log(this.todo)
+    },
+  };
+
+
 </script>
+
+
+
+
 <style scoped>
   /*item*/
   li {

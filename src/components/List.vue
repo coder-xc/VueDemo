@@ -1,19 +1,26 @@
 <template>
   <ul class="todo-main">
-    <Item></Item>
-    <Item></Item>
-    <Item></Item>
+    <Item v-for="(todo, index) in todos" :key="todo.id" :todo="todo"/>
   </ul>
 </template>
 
+
+
 <script>
-import Item from "./Item";
-export default {
-  components: {
-    Item
-  }
-};
+  import Item from "./Item";
+  export default {
+    // 声明接收标签属性: 属性名
+    // 接收到的所有标签属性数据都会成为当前组件对象的属性
+    props: ['todos'],
+    components: {
+      Item
+    }
+  };
 </script>
+
+
+
+
 <style scoped>
   /*main*/
   .todo-main {
