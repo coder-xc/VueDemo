@@ -6,7 +6,13 @@
 
 <script>
   export default {
-
+    props: { // 属性名 / 属性值的类型 / 属性的必要性
+      addTodo: {
+        type: Function,
+        required: true
+      }
+    },
+    
     data() {
       return {
         title: ''
@@ -15,7 +21,7 @@
     methods: {
       add() {
         // 根据输入的数据准备一个todo对象
-        const title = this.title.trim();
+        const title = this.title.trim()
         if(!title) {
           alert('请先输入');
           return;
@@ -27,9 +33,7 @@
         }
       
         // 向APP的todos中添加一个todo
-        // 分发自定义事件
-        this.$emit('addTodo', todo)
-
+        this.addTodo(todo)
         // 清除输入
         this.title = ''
       }
