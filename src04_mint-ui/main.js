@@ -2,10 +2,10 @@
 入口JS
 */
 import Vue from 'vue'
-import router from './router'
+import { Button } from 'mint-ui'
 import App from './App.vue'
-// import '../static/css/bootstrap.css'
 
+Vue.component(Button.name, Button) // <mt-button></mt-button>
 
 /* eslint-disable no-new */
 new Vue({
@@ -13,7 +13,6 @@ new Vue({
   components: {
     App
   },
-  template: '<App />',
-  router
+  template: '<App />'
 })
 
