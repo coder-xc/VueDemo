@@ -1,8 +1,11 @@
-/**
- * 入口js
- */
+/*
+入口JS
+*/
 import Vue from 'vue'
+import router from './router'
 import App from './App.vue'
+// import '../static/css/bootstrap.css'
+
 
 /* eslint-disable no-new */
 new Vue({
@@ -10,5 +13,7 @@ new Vue({
   components: {
     App
   },
-  template: '<App />'
+  template: '<App />',
+  router
 })
+

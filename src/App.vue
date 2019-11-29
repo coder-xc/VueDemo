@@ -1,49 +1,50 @@
 <template>
   <div>
-
-
-    <div class="row">
-      <div class="col-xs-offset-2 col-xs-8">
-        <div class="page-header">
-          <h2>Router Basic - 01</h2>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-
-      <div class="col-xs-2 col-xs-offset-2">
-        <div class="list-group">
-          <router-link to="/about" class="list-group-item">About</router-link>
-          <router-link to="/home" class="list-group-item">Home</router-link>
-        </div>
-      </div>
-
-
-      <div class="col-xs-6">
-        <div class="panel">
-          <div class="panel-body">
-            <!-- 标识在此显示当前路由组件界面 -->
-            <keep-alive>
-              <router-view msg="abc"></router-view>
-            </keep-alive>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
+    <div>clicked: {{count}} times, count is {{evenOrOdd}}</div>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">increment if odd</button>
+    <button @click="incrementAsync">increment async</button>
   </div>
-
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
-export default {
+  export default {
+    data() {
+      return {
+        count: 0,
+      }
+    },
 
-};
+    computed: {
+      evenOrOdd() {
+        return this.count % 2 === 1 ? '奇数' : '偶数'
+      }
+    },
+
+    methods: {
+      increment() {
+        this.count++
+      },
+      decrement() {
+        this.count--
+      },
+      incrementIfOdd() {
+        if(this.count % 2 === 1) {
+          this.count++
+        }
+      },
+      incrementAsync() {
+        setTimeout(() => {
+          this.count++
+        }, 1000);
+      },
+    }
+  }
+
 </script>
 
 <style scoped>
+
 </style>
