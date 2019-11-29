@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>clicked: {{count}} times, count is {{evenOrOdd}}</div>
+    <div>clicked: {{count}} times, count is {{evenOrOdd2}}</div>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
     <button @click="incrementIfOdd">increment if odd</button>
@@ -9,42 +9,38 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+export default {
+  computed: {
+    ...mapState(["count"]),
+    ...mapGetters({
+      evenOrOdd2: "evenOrOdd"
+    })
+  },
 
-  export default {
-    data() {
-      return {
-        count: 0,
-      }
-    },
-
-    computed: {
-      evenOrOdd() {
-        return this.count % 2 === 1 ? '奇数' : '偶数'
-      }
-    },
-
-    methods: {
-      increment() {
-        this.count++
-      },
-      decrement() {
-        this.count--
-      },
-      incrementIfOdd() {
-        if(this.count % 2 === 1) {
-          this.count++
-        }
-      },
-      incrementAsync() {
-        setTimeout(() => {
-          this.count++
-        }, 1000);
-      },
-    }
+  // methods: {
+  //   increment() {
+  //     this.$store.commit('INCREMENT')
+  //   },
+  //   decrement() {
+  //     this.$store.commit('DECREMENT')
+  //   },
+  //   incrementIfOdd() {
+  //     this.$store.dispatch('incrementIfOdd')
+  //   },
+  //   incrementAsync() {
+  //    this.$store.dispatch('incrementAsync')
+  //   },
+  // },
+  methods: {
+    ...mapMutations({
+      increment: 'INCREMENT',
+      decrement: 'DECREMENT',
+    }),
+    ...mapActions(['incrementIfOdd', 'incrementAsync'])
   }
-
+};
 </script>
 
 <style scoped>
-
 </style>
