@@ -28,6 +28,8 @@ export default [
                     {
                         path: '/home/message/detail/:id',
                         component: MessageDetail,
+                        // 将路由中的参数数据映射成标签属性
+                        props: route => ({ id: route.params.id * 1 })
                     }
                 ]
             },

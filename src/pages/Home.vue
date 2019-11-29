@@ -15,9 +15,12 @@
   </div>
 </template>
 <script>
-import News from "./News.vue";
-import Message from "./News";
-export default {};
+  import News from "./News.vue";
+  import Message from "./News";
+  export default {
+
+
+  };
 </script>
 
 <style scoped>
